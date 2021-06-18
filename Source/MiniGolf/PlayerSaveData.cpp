@@ -10,7 +10,7 @@ void UPlayerSaveData::SavePlayerState(UPlayerSaveData* saveInstance, FSaveDataAt
 	saveInstance->saveAttibutes.maxLevelsClearedIndex = attribs.maxLevelsClearedIndex;
 	saveInstance->saveAttibutes.ballColor = attribs.ballColor;
 
-	// do something for the array
+	saveInstance->saveAttibutes.skillLevels = TArray<int>{ attribs.skillLevels[0], attribs.skillLevels[1], attribs.skillLevels[2] };
 
 	UGameplayStatics::SaveGameToSlot(saveInstance, TEXT("PlayerSaveData_Slot0"), slot);
 }

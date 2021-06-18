@@ -17,12 +17,13 @@ struct FSaveDataAttributes
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		FLinearColor ballColor;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		int maxLevelsClearedIndex;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		TArray<int> skillLevels;
-
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		int coinsCollected;
 };
 
@@ -34,10 +35,10 @@ class MINIGOLF_API UPlayerSaveData : public USaveGame
 
 public:
 	UFUNCTION(BlueprintCallable, Exec)
-		void SavePlayerState(FSaveDataAttributes attribs);
+		void SavePlayerState(UPlayerSaveData* saveInstance, FSaveDataAttributes attribs, int slot);
 
 	UFUNCTION(BlueprintCallable, Exec)
-		void LoadPlayerState(FSaveDataAttributes attribs);
+		FSaveDataAttributes LoadPlayerState(UPlayerSaveData* saveInstance, int slot);
 	
 	UPROPERTY(EditAnywhere)
 		FSaveDataAttributes saveAttibutes;

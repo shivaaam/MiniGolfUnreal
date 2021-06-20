@@ -25,6 +25,11 @@ public:
 		TArray<int> skillLevels;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		int coinsCollected;
+
+	FSaveDataAttributes()
+	{
+		maxLevelsClearedIndex = -1;
+	}
 };
 
 
